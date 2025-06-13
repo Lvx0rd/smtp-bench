@@ -107,10 +107,10 @@ public class SmtpBenchApp {
             writer.write("SMTP Host: " + config.get("smtp.host") + "\n");
             writer.write("SMTP Port: " + config.get("smtp.port") + "\n");
             writer.write("SMTP Username: " + config.get("smtp.username") + "\n");
-            writer.write("Number of Emails: " + count + "\n");
-            writer.write("Message Size: " + config.getInt("smtp.message.size", 1024) + " bytes\n");
-            writer.write("Reuse Connection: " + config.get("smtp.reuse.connection") + "\n");
-            writer.write("\n"); // Riga vuota tra config e risultati
+            writer.write("Numero email: " + count + "\n");
+            writer.write("Dimensione mail: " + config.getInt("smtp.message.size", 1024) + " bytes\n");
+            writer.write("Riutilizzo connessione: " + config.get("smtp.reuse.connection") + "\n");
+            writer.write("\n");
             writer.write("Tempo minimo: " + metrics[0] + " ms\n");
             writer.write("Tempo massimo: " + metrics[1] + " ms\n");
             writer.write("Tempo medio: " + avg + " ms\n");
