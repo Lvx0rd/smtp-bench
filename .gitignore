@@ -1,0 +1,23 @@
+# Maven
+/target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# IDE files
+*.iml
+.idea/
+*.ipr
+*.iws
+.vscode/
+*.class
+
+# Sistema operativo
+.DS_Store
+Thumbs.db
+
+# Log e file temporanei
+*.log
+*.swp
+*.swo
+
+# File di output del benchmark
+benchmark_results.txt
