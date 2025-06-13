@@ -58,8 +58,6 @@ smtp.message.size = 1024
    mvn exec:java "-Dexec.mainClass=com.smtpbench.app.SmtpBenchApp"
    ```
 
-   *(Version and jar names may vary depending on your `pom.xml`)*
-
 ## Results
 
 - Main metrics (min, max, average time) are printed to the terminal.
