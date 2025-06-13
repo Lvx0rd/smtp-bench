@@ -1,5 +1,6 @@
 # Maven
 /target/
+.mvn/
 
 # File di output del benchmark
 benchmark_results.txt
