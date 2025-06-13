@@ -1,0 +1,26 @@
+==== Benchmark 2025-06-13 16:20:14 ====
+SMTP Host: smtp.ethereal.email
+SMTP Port: 587
+SMTP Username: clementina.pollich26@ethereal.email
+Number of Emails: 10
+Message Size: 1024 bytes
+Reuse Connection: true
+
+Tempo minimo: 257 ms
+Tempo massimo: 462 ms
+Tempo medio: 305.1 ms
+======================================
+
+==== Benchmark 2025-06-13 16:52:25 ====
+SMTP Host: smtp.ethereal.email
+SMTP Port: 587
+SMTP Username: clementina.pollich26@ethereal.email
+Number of Emails: 10
+Message Size: 1024 bytes
+Reuse Connection: true
+
+Tempo minimo: 244 ms
+Tempo massimo: 359 ms
+Tempo medio: 268.5 ms
+======================================
+
