@@ -19,13 +19,19 @@ src/main/resources/configuration.properties
 ### Esempio di configurazione
 
 ```properties
-smtp.host=smtp.ethereal.email
-smtp.port=587
-smtp.username=tuo_username
-smtp.password=la_tua_password
-smtp.reuse.connection=true
-smtp.benchmark.count=10
-smtp.message.size=1024
+smtp.host = smtp.ethereal.email
+smtp.port = 587
+
+smtp.username = tuo_username
+smtp.password = la_tua_password
+
+
+smtp.from = example@mail.com
+smtp.to = example@mail.com
+
+smtp.reuse.connection = true
+smtp.benchmark.count = 10
+smtp.message.size = 1024
 ```
 
 
@@ -34,13 +40,10 @@ smtp.message.size=1024
 
 - `smtp.host`: indirizzo del server SMTP
 - `smtp.port`: porta SMTP
-
 - `smtp.username`: username per autenticazione
 - `smtp.password`: password per autenticazione
-
 - `smtp.from`: email del mittente
 - `smtp.to`: email del destinatario
-
 - `smtp.benchmark.count`: numero di email da inviare per il benchmark
 - `smtp.message.size`: dimensione (in byte) del corpo del messaggio
 - `smtp.reuse.connection`: `true` per riutilizzare la connessione SMTP, `false` per aprirne una nuova ad ogni invio
