@@ -34,11 +34,16 @@ smtp.message.size=1024
 
 - `smtp.host`: indirizzo del server SMTP
 - `smtp.port`: porta SMTP
+
 - `smtp.username`: username per autenticazione
 - `smtp.password`: password per autenticazione
-- `smtp.reuse.connection`: `true` per riutilizzare la connessione SMTP, `false` per aprirne una nuova ad ogni invio
+
+- `smtp.from`: email del mittente
+- `smtp.to`: email del destinatario
+
 - `smtp.benchmark.count`: numero di email da inviare per il benchmark
 - `smtp.message.size`: dimensione (in byte) del corpo del messaggio
+- `smtp.reuse.connection`: `true` per riutilizzare la connessione SMTP, `false` per aprirne una nuova ad ogni invio
 
 > **Nota:** Per i test è stato utilizzato [Ethereal Email](https://ethereal.email/), un servizio SMTP gratuito pensato per test e sviluppo.
 
