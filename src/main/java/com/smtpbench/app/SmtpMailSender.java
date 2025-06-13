@@ -23,8 +23,8 @@ public class SmtpMailSender {
     }
 
     /**
-     * Crea una sessione SMTP utilizzando le proprietà configurate
-     * Utilizza l'autenticazione con username e password
+     * Creates an SMTP session using the configured properties.
+     * Uses authentication with username and password.
      */
     public Session createSession() {
         return Session.getInstance(createSmtpProperties(), new Authenticator() {
@@ -37,7 +37,7 @@ public class SmtpMailSender {
     }
 
     /**
-     * Invia un'email creando ogni volta una nuova sessione
+     * Sends an email by creating a new session each time
      */
     public void sendMail(String subject, String body) throws MessagingException {
         Session session = createSession();
@@ -53,7 +53,7 @@ public class SmtpMailSender {
     }
 
     /**
-     * Invia un'email utilizzando una sessiobne e un transport esistenti
+     * Sends an email using an existing session and transport
      */
     public long sendMailOnTransport(Session session, Transport transport, String subject, String body) throws MessagingException {
         Message message = new MimeMessage(session);
@@ -65,16 +65,16 @@ public class SmtpMailSender {
         long start = System.nanoTime();
         transport.sendMessage(message, message.getAllRecipients());
         long end = System.nanoTime();
-        return (end - start) / 1_000_000; // tempo in ms
+        return (end - start) / 1_000_000; // time in ms
     }
 
     /**
-     * Invia un'email e misura il tempo impiegato per l'invio
+     * Sends an email and measures the time taken to send it
      */
     public long sendMailAndMeasure(String subject, String body) throws MessagingException {
         long start = System.nanoTime();
         sendMail(subject, body);
         long end = System.nanoTime();
-        return (end - start) / 1_000_000; // tempo in millisecondi
+        return (end - start) / 1_000_000; // time in ms
     }
 }

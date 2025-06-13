@@ -30,9 +30,8 @@ public class ConfigLoaderTest {
     @Test
     void testGetIntReadsNumericProperty() throws Exception {
         ConfigLoader config = new ConfigLoader();
-        // Assicurati che smtp.port sia un numero nel file di configurazione
         int port = config.getInt("smtp.port", 0);
-        assertTrue(port > 0, "La porta SMTP deve essere maggiore di zero");
+        assertTrue(port > 0, "SMTP port must be greater than zero");
     }
 
     @Test

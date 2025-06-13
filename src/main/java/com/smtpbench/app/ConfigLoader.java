@@ -11,7 +11,7 @@ public class ConfigLoader {
     public ConfigLoader() throws IOException {
         try (InputStream input = getClass().getClassLoader().getResourceAsStream(CONFIG_FILE)) {
             if (input == null) {
-                throw new IOException("File di configurazione non trovato: " + CONFIG_FILE);
+                throw new IOException("Configuration file not found: " + CONFIG_FILE);
             }
             properties.load(input);
         }
@@ -25,7 +25,7 @@ public class ConfigLoader {
         for (String key : required) {
             String value = properties.getProperty(key);
             if (value == null || value.trim().isEmpty()) {
-                System.err.println("WARNING: La property obbligatoria '" + key + "' è mancante o vuota!");
+                System.err.println("WARNING: The required property '" + key + "' is missing or empty!");
             }
         }
     }

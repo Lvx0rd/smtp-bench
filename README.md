@@ -1,30 +1,29 @@
 # SMTP Benchmark Tool
 
-Questa applicazione Java esegue un benchmark su un servizio SMTP, misurando i tempi di invio email in diverse condizioni.
+This Java application benchmarks an SMTP service, measuring email sending times under different conditions.
 
-## Requisiti
+## Requirements
 
-- Java 17 o superiore
+- Java 17 or higher
 - Maven 3.x
-- Un server SMTP con autenticazione username/password
+- An SMTP server with username/password authentication
 
-## Configurazione
+## Configuration
 
-Tutte le configurazioni si trovano nel file:
+All configurations are in the file:
 
 ```
 src/main/resources/configuration.properties
 ```
 
-### Esempio di configurazione
+### Example configuration
 
 ```properties
 smtp.host = smtp.ethereal.email
 smtp.port = 587
 
-smtp.username = tuo_username
-smtp.password = la_tua_password
-
+smtp.username = your_username
+smtp.password = your_password
 
 smtp.from = example@mail.com
 smtp.to = example@mail.com
@@ -34,56 +33,54 @@ smtp.benchmark.count = 10
 smtp.message.size = 1024
 ```
 
+**Main parameters:**
 
+- `smtp.host`: SMTP server address
+- `smtp.port`: SMTP port
+- `smtp.username`: authentication username
+- `smtp.password`: authentication password
+- `smtp.from`: sender email address
+- `smtp.to`: recipient email address
+- `smtp.benchmark.count`: number of emails to send for the benchmark
+- `smtp.message.size`: size (in bytes) of the message body
+- `smtp.reuse.connection`: `true` to reuse the SMTP connection, `false` to open a new one for each send
 
-**Parametri principali:**
+> **Note:** [Ethereal Email](https://ethereal.email/), a free SMTP service for testing and development, was used for testing.
 
-- `smtp.host`: indirizzo del server SMTP
-- `smtp.port`: porta SMTP
-- `smtp.username`: username per autenticazione
-- `smtp.password`: password per autenticazione
-- `smtp.from`: email del mittente
-- `smtp.to`: email del destinatario
-- `smtp.benchmark.count`: numero di email da inviare per il benchmark
-- `smtp.message.size`: dimensione (in byte) del corpo del messaggio
-- `smtp.reuse.connection`: `true` per riutilizzare la connessione SMTP, `false` per aprirne una nuova ad ogni invio
+## How to run the benchmark
 
-> **Nota:** Per i test è stato utilizzato [Ethereal Email](https://ethereal.email/), un servizio SMTP gratuito pensato per test e sviluppo.
-
-## Come eseguire il benchmark
-
-1. Configura il file `configuration.properties` con i tuoi parametri SMTP.
-2. Da terminale, posizionati nella cartella del progetto.
-3. Esegui i seguenti comandi:
+1. Configure the `configuration.properties` file with your SMTP parameters.
+2. In the terminal, navigate to the project folder.
+3. Run the following commands:
 
    ```sh
    mvn clean package
-   java -cp target/smtp-bench-1.0-SNAPSHOT.jar com.smtpbench.app.SmtpBenchApp
+   mvn exec:java "-Dexec.mainClass=com.smtpbench.app.SmtpBenchApp"
    ```
 
-   *(I nomi di versione e jar possono variare in base al tuo `pom.xml`)*
+   *(Version and jar names may vary depending on your `pom.xml`)*
 
-## Risultati
+## Results
 
-- Le metriche principali (tempo minimo, massimo, medio) vengono stampate a terminale.
-- Tutti i dettagli del benchmark vengono salvati nel file `benchmark_results.txt` nella cartella principale del progetto.
+- Main metrics (min, max, average time) are printed to the terminal.
+- All benchmark details are saved in the `benchmark_results.txt` file in the project root.
 
-## Test automatici
+## Automated tests
 
-Per eseguire i test automatici:
+To run automated tests:
 
 ```sh
 mvn test
 ```
 
-## Struttura del progetto
+## Project structure
 
 ```
-src/main/java/com/smtpbench/app/          --> Codice sorgente principale
-src/main/resources/configuration.properties --> Configurazione
-src/test/java/com/smtpbench/app/          --> Test automatici
+src/main/java/com/smtpbench/app/          --> Main source code
+src/main/resources/configuration.properties --> Configuration
+src/test/java/com/smtpbench/app/          --> Automated tests
 ```
 
-## Autore
+## Author
 
 Luca Vignoli

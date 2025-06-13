@@ -9,7 +9,7 @@ import java.time.format.DateTimeFormatter;
 public class SmtpBenchApp {
     public static void main(String[] args) {
         try {
-            System.out.println("Benchmark iniziato...");
+            System.out.println("Benchmark started...");
             ConfigLoader config = new ConfigLoader();
 
             SmtpMailSender mailSender = new SmtpMailSender(config);
@@ -23,7 +23,7 @@ public class SmtpBenchApp {
             printMetrics(metrics, count);
             saveMetricsToFile(metrics, count, config, "benchmark_results.txt");
             System.out.println(
-                    count + " mail inviate con successo. Risultati completi salvati su benchmark_results.txt.");
+                    count + " mails successfully sent. Metrics saved to benchmark_results.txt");
 
         } catch (Exception e) {
             System.err.println("Errore: " + e.getMessage());
@@ -31,24 +31,24 @@ public class SmtpBenchApp {
     }
 
     /**
-     * Stampa le metriche del benchmark
+     * Prints benchmark metrics
      */
     private static void printMetrics(long[] metrics, int count) {
         double avg = (double) metrics[2] / count;
         System.out.println("========================");
-        System.out.println("Tempo minimo: " + metrics[0] + " ms");
-        System.out.println("Tempo massimo: " + metrics[1] + " ms");
-        System.out.println("Tempo medio: " + avg + " ms");
+        System.out.println("Min time: " + metrics[0] + " ms");
+        System.out.println("Max time: " + metrics[1] + " ms");
+        System.out.println("Avg time: " + avg + " ms");
     }
 
     /**
-     * Esegue il benchmark di invio email
-     * 
-     * @param mailSender      istanza di SmtpMailSender
-     * @param count           numero di email da inviare
-     * @param messageSize     dimensione del messaggio in byte
-     * @param reuseConnection se true, riutilizza la connessione SMTP
-     * @return array contenente min, max e sum dei tempi di invio
+     * Executes the email sending benchmark.
+     *
+     * @param mailSender      instance of SmtpMailSender
+     * @param count           number of emails to send
+     * @param messageSize     size of the message in bytes
+     * @param reuseConnection if true, reuses the SMTP connection
+     * @return array containing min, max, and sum of send times
      */
     private static long[] runBenchmark(SmtpMailSender mailSender, int count, int messageSize, boolean reuseConnection)
             throws Exception {
@@ -83,7 +83,7 @@ public class SmtpBenchApp {
     }
 
     /**
-     * Genera un corpo email di dimensione specificata
+     * Generates an email body of the specified size
      */
     static String generateBody(int size) {
         if (size <= 0) {
@@ -97,7 +97,7 @@ public class SmtpBenchApp {
     }
 
     /**
-     * Salva le metriche del benchmark su file
+     * Saves the benchmark metrics to a file
      */
     private static void saveMetricsToFile(long[] metrics, int count, ConfigLoader config, String filename) {
         double avg = (double) metrics[2] / count;
@@ -107,16 +107,16 @@ public class SmtpBenchApp {
             writer.write("SMTP Host: " + config.get("smtp.host") + "\n");
             writer.write("SMTP Port: " + config.get("smtp.port") + "\n");
             writer.write("SMTP Username: " + config.get("smtp.username") + "\n");
-            writer.write("Numero email: " + count + "\n");
-            writer.write("Dimensione mail: " + config.getInt("smtp.message.size", 1024) + " bytes\n");
-            writer.write("Riutilizzo connessione: " + config.get("smtp.reuse.connection") + "\n");
+            writer.write("Mail number: " + count + "\n");
+            writer.write("Mail size: " + config.getInt("smtp.message.size", 1024) + " bytes\n");
+            writer.write("Reuse connection: " + config.get("smtp.reuse.connection") + "\n");
             writer.write("\n");
-            writer.write("Tempo minimo: " + metrics[0] + " ms\n");
-            writer.write("Tempo massimo: " + metrics[1] + " ms\n");
-            writer.write("Tempo medio: " + avg + " ms\n");
+            writer.write("Min time: " + metrics[0] + " ms\n");
+            writer.write("Max time: " + metrics[1] + " ms\n");
+            writer.write("Avg time: " + avg + " ms\n");
             writer.write("======================================\n\n");
         } catch (IOException e) {
-            System.err.println("Errore nel salvataggio dei risultati: " + e.getMessage());
+            System.err.println("Error saving benchmark results: " + e.getMessage());
         }
     }
 }
