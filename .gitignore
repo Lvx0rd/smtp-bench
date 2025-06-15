@@ -2,8 +2,8 @@
 /target/
 .mvn/
 
-# File di output del benchmark
+# Benchmark output file
 benchmark_results.txt
 
-# Lista di cose da fare
+# ToDO list
 list.todo
