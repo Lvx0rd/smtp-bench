@@ -30,10 +30,16 @@ public class ConfigLoader {
         }
     }
 
+    /**
+     * Returns the value of the given property key, or null if not found.
+     */
     public String get(String key) {
         return properties.getProperty(key);
     }
 
+    /**
+     * Returns the integer value of the given property key, or the default value if not found or invalid.
+     */
     public int getInt(String key, int defaultValue) {
         String value = properties.getProperty(key);
         if (value == null) return defaultValue;

@@ -37,7 +37,7 @@ public class SmtpMailSender {
     }
 
     /**
-     * Sends an email by creating a new session each time
+     * Sends an email by creating a new session each time.
      */
     public void sendMail(String subject, String body) throws MessagingException {
         Session session = createSession();
@@ -53,7 +53,7 @@ public class SmtpMailSender {
     }
 
     /**
-     * Sends an email using an existing session and transport
+     * Sends an email using an existing session and transport.
      */
     public long sendMailOnTransport(Session session, Transport transport, String subject, String body) throws MessagingException {
         Message message = new MimeMessage(session);
@@ -69,7 +69,7 @@ public class SmtpMailSender {
     }
 
     /**
-     * Sends an email and measures the time taken to send it
+     * Sends an email and measures the time taken to send it.
      */
     public long sendMailAndMeasure(String subject, String body) throws MessagingException {
         long start = System.nanoTime();

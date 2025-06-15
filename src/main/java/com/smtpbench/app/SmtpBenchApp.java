@@ -31,7 +31,7 @@ public class SmtpBenchApp {
     }
 
     /**
-     * Prints benchmark metrics
+     * Prints benchmark metrics to the terminal.
      */
     private static void printMetrics(long[] metrics, int count) {
         double avg = (double) metrics[2] / count;
@@ -42,13 +42,7 @@ public class SmtpBenchApp {
     }
 
     /**
-     * Executes the email sending benchmark.
-     *
-     * @param mailSender      instance of SmtpMailSender
-     * @param count           number of emails to send
-     * @param messageSize     size of the message in bytes
-     * @param reuseConnection if true, reuses the SMTP connection
-     * @return array containing min, max, and sum of send times
+     * Runs the email sending benchmark and returns min, max, and sum of send times.
      */
     private static long[] runBenchmark(SmtpMailSender mailSender, int count, int messageSize, boolean reuseConnection)
             throws Exception {
@@ -83,7 +77,7 @@ public class SmtpBenchApp {
     }
 
     /**
-     * Generates an email body of the specified size
+     * Generates an email body of the specified size.
      */
     static String generateBody(int size) {
         if (size <= 0) {
@@ -97,7 +91,7 @@ public class SmtpBenchApp {
     }
 
     /**
-     * Saves the benchmark metrics to a file
+     * Saves the benchmark metrics to a file.
      */
     private static void saveMetricsToFile(long[] metrics, int count, ConfigLoader config, String filename) {
         double avg = (double) metrics[2] / count;
